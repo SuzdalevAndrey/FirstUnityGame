@@ -23,7 +23,6 @@ public class SckinControl : MonoBehaviour
             }
         }
     }
-
     void Update()
     {
         if(PlayerPrefs.GetInt(GetComponent<Image>().name + "buy")==0){

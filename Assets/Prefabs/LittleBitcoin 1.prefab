@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5295487299888507097}
   m_Layer: 0
   m_Name: LittleBitcoin 1
-  m_TagString: LittleBitcoin
+  m_TagString: PrefabsMoney
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8500022078017692404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: -2.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 44027768d2894b842b057b8cd85ba551, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42b0eab55da4ef14183070f7d952726f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,6 +122,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8500022078017692404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f01c7a0cc1a73a47a547fc6f02ed5ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fe0107cd5af40748a8931e11b782473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

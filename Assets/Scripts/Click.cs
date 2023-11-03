@@ -10,7 +10,12 @@ public class Click : MonoBehaviour
     public void OnClick(){
         dateController.countCash+=dateController.upgradeCash;
         dateController.countCash=(float)Math.Round((float)dateController.countCash,4);
+
         PlayerPrefs.SetFloat("countCash",dateController.countCash);
+        
+        ++dateController.countClickOnTime;
+        
+
         Instantiate(dateController.littleBitcoin,dateController.spawner.position+new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-2f, 2f), 0), Quaternion.identity);
     }
 }

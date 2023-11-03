@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,12 +46,17 @@ public class GameDateController : MonoBehaviour
     public bool flagLanguage=true;
     [Header("nameUpgradeClick")]
     public Text[] nameUpgradeClickText;
-    private string[] nameUpgradeClickRu;
-    private string[] nameUpgradeClickEn;
+    public string[] nameUpgradeClickRu = {"Скорость Сатоши","Драйв Догекоина","Кардано Клик","XRP-эффект","Стабильность","Салют Соланы","Энергия Лайткоина","Блокчейн Бустер","Эфирный Экстаз","Бум Биткоина"};
+    public string[] nameUpgradeClickEn = {"Satoshi's Speed","Dogecoin Drive","Cardano Click","XRP-effect","Stability","Salute to Solana","Litecoin Energy","Blockchain Booster","Ethereal Ecstasy","Bitcoin Boom"};
     [Header("nameUpgradeMaining")]
     public Text[] nameUpgradeMainingText;
     public string[] nameUpgradeMainingRu={"Калькулятор","Холодильник","Телевизор","Микроволновка","Старый ПК","Смартфон","Видеокарта","Игровой ПК", "Майнинг ферма","Супер компьютер"};
     public string[] nameUpgradeMainingEn={"Calculator","Fridge","TV","Nuke","Old PC","Smartphone","Videocard","Gaming PC", "Mining Farm","Supercomputer"};
+    [Header("LevelGame")]
+    public int LevelGame;
+    public int countClickOnTime;
+    public Slider SliderLevel;
+
     void Start(){
         countCash=PlayerPrefs.GetFloat("countCash");
         upgradeCash=PlayerPrefs.GetFloat("upgradeCash");
@@ -85,6 +89,12 @@ public class GameDateController : MonoBehaviour
                 nameUpgradeMainingText[i].text=nameUpgradeMainingRu[i];
             else
                 nameUpgradeMainingText[i].text=nameUpgradeMainingEn[i];
+        }
+        for(int i=0;i<nameUpgradeClickText.Length;++i){
+            if(flagLanguage==true)
+                nameUpgradeClickText[i].text=nameUpgradeClickRu[i];
+            else
+                nameUpgradeClickText[i].text=nameUpgradeClickEn[i];
         }
     }
 }

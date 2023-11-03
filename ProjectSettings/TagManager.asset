@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LittleBitcoin
   - ButtonRuLanguage
+  - PrefabsMoney
   layers:
   - Default
   - TransparentFX

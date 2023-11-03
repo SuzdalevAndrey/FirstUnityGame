@@ -23,6 +23,8 @@ public class UIHandler : MonoBehaviour
         UpdateTextMainigInSecondsUpgradeInShop();
         UpdateTextMainigLevelUpgradeInShop();
         UpdateTextNameUpgradeMaining();
+        UpdateTextNameUpgradeClick();
+        UpdateSlider();
     }
     private void UpdateTextAllMoney(){
         if(dateController.countCash<0.0001f)
@@ -33,7 +35,7 @@ public class UIHandler : MonoBehaviour
         }
         else{
             for(int i=0;i<dateController.textCash.Length;++i){
-                dateController.textCash[i].text=dateController.countCash.ToString();
+                dateController.textCash[i].text=FormatNumber(dateController.countCash);
             }
         }
     }
@@ -64,7 +66,7 @@ public class UIHandler : MonoBehaviour
                 dateController.costsText[i].text="Цена: ";
             else
                 dateController.costsText[i].text="Costs: ";
-            dateController.costsText[i].text += dateController.clickCosts[i].ToString();
+            dateController.costsText[i].text += FormatNumber(dateController.clickCosts[i]);
         }
     }
     private void UpdateTextPowerClickUpgradeInShop(){
@@ -91,7 +93,7 @@ public class UIHandler : MonoBehaviour
                 dateController.mainigCostsText[i].text="Цена: ";
             else
                 dateController.mainigCostsText[i].text="Costs: ";
-            dateController.mainigCostsText[i].text += dateController.mainigCosts[i].ToString();
+            dateController.mainigCostsText[i].text += FormatNumber(dateController.mainigCosts[i]);
         }
     }
     private void UpdateTextMainigInSecondsUpgradeInShop(){
@@ -120,6 +122,17 @@ public class UIHandler : MonoBehaviour
                 dateController.nameUpgradeMainingText[i].text=dateController.nameUpgradeMainingEn[i];
         }
     }
+    private void UpdateTextNameUpgradeClick(){
+        for(int i=0;i<dateController.nameUpgradeClickText.Length;++i){
+            if(dateController.flagLanguage==true)
+                dateController.nameUpgradeClickText[i].text=dateController.nameUpgradeClickRu[i];
+            else
+                dateController.nameUpgradeClickText[i].text=dateController.nameUpgradeClickEn[i];
+        }
+    }
+    private void UpdateSlider(){
+        dateController.SliderLevel.value = dateController.countClickOnTime;
+    }
     
     private IEnumerator CallFunctionEverySecond()
     {
@@ -129,6 +142,26 @@ public class UIHandler : MonoBehaviour
             dateController.countCash=(float)Math.Round((float)dateController.countCash,4);
             PlayerPrefs.SetFloat("countCash", dateController.countCash);
             yield return new WaitForSeconds(interval);
+        }
+    }
+    public string FormatNumber(float number)
+    {
+        if (number < 1000)
+            return number.ToString();
+        else if (number < 1000000){
+            number /= 1000;
+            number=(float)Math.Round((float)number,2);
+            return number.ToString() + "k";
+        }
+        else if (number < 1000000000){
+            number /= 1000000;
+            number=(float)Math.Round((float)number,2);
+            return number.ToString() + "M";
+        }
+        else{
+            number /= 1000000000;
+            number=(float)Math.Round((float)number,2);
+            return number.ToString() + "B";
         }
     }
 }

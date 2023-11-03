@@ -17,7 +17,7 @@ public class Restart : MonoBehaviour
         PlayerPrefs.SetFloat("upgradeCashInSeconds",0.0000f);
         for(int lv = 0;lv<dateController.level.Length;++lv){
             if(PlayerPrefs.HasKey(lv.ToString() + "clickLevel")){
-                PlayerPrefs.SetInt(lv.ToString() + "click",0);
+                PlayerPrefs.SetInt(lv.ToString() + "clickLevel",0);
             }
         }
         for(int lv = 0;lv<dateController.level.Length;++lv){

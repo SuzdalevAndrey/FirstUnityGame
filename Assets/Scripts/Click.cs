@@ -14,7 +14,7 @@ public class Click : MonoBehaviour
         PlayerPrefs.SetFloat("countCash",dateController.countCash);
         
         ++dateController.countClickOnTime;
-        
+        PlayerPrefs.SetInt("countClickOnTime",dateController.countClickOnTime);
 
         Instantiate(dateController.littleBitcoin,dateController.spawner.position+new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-2f, 2f), 0), Quaternion.identity);
     }

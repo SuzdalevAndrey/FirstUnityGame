@@ -131,6 +131,17 @@ public class UIHandler : MonoBehaviour
         }
     }
     private void UpdateSlider(){
+        if(dateController.SliderLevel.value==dateController.SliderLevel.maxValue){
+            dateController.SliderLevel.value=0;
+
+            ++dateController.LevelGame;
+            PlayerPrefs.SetInt("LevelGame",dateController.LevelGame);
+
+            dateController.SliderLevel.maxValue=dateController.LevelGame*dateController.maxValue;
+            dateController.countClickOnTime=0;
+            
+            dateController.Accomplishment.SetActive(true);
+        }
         dateController.SliderLevel.value = dateController.countClickOnTime;
     }
     

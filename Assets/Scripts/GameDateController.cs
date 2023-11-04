@@ -53,9 +53,11 @@ public class GameDateController : MonoBehaviour
     public string[] nameUpgradeMainingRu={"Калькулятор","Холодильник","Телевизор","Микроволновка","Старый ПК","Смартфон","Видеокарта","Игровой ПК", "Майнинг ферма","Супер компьютер"};
     public string[] nameUpgradeMainingEn={"Calculator","Fridge","TV","Nuke","Old PC","Smartphone","Videocard","Gaming PC", "Mining Farm","Supercomputer"};
     [Header("LevelGame")]
-    public int LevelGame;
+    public int LevelGame = 1;
     public int countClickOnTime;
     public Slider SliderLevel;
+    public int maxValue = 50;
+    public GameObject Accomplishment;
 
     void Start(){
         countCash=PlayerPrefs.GetFloat("countCash");
@@ -64,6 +66,12 @@ public class GameDateController : MonoBehaviour
         clickButtonSound.volume=volume;
         moneySound.volume=volume;
         flagLanguage=Convert.ToBoolean(PlayerPrefs.GetInt("flagLanguage"));
+        
+        LevelGame=PlayerPrefs.GetInt("LevelGame");
+        countClickOnTime=PlayerPrefs.GetInt("countClickOnTime");
+        SliderLevel.maxValue=LevelGame*maxValue;
+        SliderLevel.value=countClickOnTime;
+
         for(int lv = 0;lv<level.Length;++lv){
             if(PlayerPrefs.HasKey(lv.ToString() + "clickLevel")){
                 level[lv]=PlayerPrefs.GetInt(lv.ToString() + "clickLevel");

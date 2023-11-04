@@ -15,6 +15,8 @@ public class Restart : MonoBehaviour
         PlayerPrefs.SetFloat("countCash",0.0000f);
         PlayerPrefs.SetFloat("upgradeCash",0.0001f);
         PlayerPrefs.SetFloat("upgradeCashInSeconds",0.0000f);
+        PlayerPrefs.SetInt("LevelGame",1);
+        PlayerPrefs.SetInt("countClickOnTime",0);
         for(int lv = 0;lv<dateController.level.Length;++lv){
             if(PlayerPrefs.HasKey(lv.ToString() + "clickLevel")){
                 PlayerPrefs.SetInt(lv.ToString() + "clickLevel",0);

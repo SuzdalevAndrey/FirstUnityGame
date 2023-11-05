@@ -25,6 +25,8 @@ public class UIHandler : MonoBehaviour
         UpdateTextNameUpgradeMaining();
         UpdateTextNameUpgradeClick();
         UpdateSlider();
+        UpdateTextCostSkin();
+        UpdateTextNameSkin();
     }
     private void UpdateTextAllMoney(){
         if(dateController.countCash<0.0001f)
@@ -144,7 +146,23 @@ public class UIHandler : MonoBehaviour
         }
         dateController.SliderLevel.value = dateController.countClickOnTime;
     }
-    
+    private void UpdateTextCostSkin(){
+        for(int i=0;i<dateController.skinCostsText.Length;++i){
+            if(dateController.flagLanguage==true)
+                dateController.skinCostsText[i].text="Цена: ";
+            else
+                dateController.skinCostsText[i].text="Costs: ";
+            dateController.skinCostsText[i].text += FormatNumber(dateController.skinCosts[i]);
+        }
+    }
+    private void UpdateTextNameSkin(){
+        for(int i=0;i<dateController.skinName.Length;++i){
+            if(dateController.flagLanguage==true)
+                dateController.skinName[i].text=dateController.skinNameRu[i];
+            else
+                dateController.skinName[i].text=dateController.skinNameEn[i];
+        }
+    }
     private IEnumerator CallFunctionEverySecond()
     {
         while (true)
